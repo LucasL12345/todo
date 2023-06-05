@@ -1,0 +1,125 @@
+:root {
+	--primary: #079ab4;
+	--secondary: #818181;
+	--light: #f4f4f4;
+	--dark: #264653;
+	--delete: #e7461d;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Fira Sans", sans-serif;
+}
+
+body {
+	background-color: var(--light);
+	color: var(--dark);
+}
+
+.App {
+	padding: 32px;
+}
+
+.todo {
+	position: relative;
+	background-color: var(--light);
+	padding: 16px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	transition: 0.5s;
+	cursor: pointer;
+	margin-bottom: 16px;
+	box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+}
+
+.todo:hover {
+	box-shadow: 0px 3px 12px rgba(0,0,0,0.15);
+}
+
+.todo .checkbox {
+	width: 20px;
+	height: 20px;
+	margin-right: 16px;
+	border-radius: 50%;
+	border: 2px solid var(--dark);
+	transition: 0.4s;
+}
+
+
+
+
+
+.todo.is-complete .checkbox {
+  border-color: var(--dark);
+  background-color: var(--light);
+  position: relative;
+  overflow: hidden;
+}
+
+.todo.is-complete .checkbox::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 10px;
+  background-image: url('../public/tick.png'); /* Replace 'tick.png' with the path to your tick image */
+  background-size: cover;
+}
+
+.todo.is-complete .checkbox::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+
+.todo.is-complete:hover .checkbox::after {
+  opacity: 0.6;
+}
+
+
+
+
+
+
+.todo .text {
+	font-size: 20px;
+}
+
+.todo.is-complete .text {
+	text-decoration: line-through;
+	color: var(--secondary);
+}
+
+.todo .delete-todo {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 16px;
+	color: var(--light);
+	width: 24px;
+	height: 24px;
+	border-radius: 20%;
+	background-color: var(--delete);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	cursor: pointer;
+	box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+}
+
+.todo .delete-todo:hover {
+	background-color: #c24e30;
+}
