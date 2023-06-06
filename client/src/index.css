@@ -1,125 +1,129 @@
 :root {
-	--primary: #079ab4;
-	--secondary: #818181;
-	--light: #f4f4f4;
-	--dark: #264653;
-	--delete: #e7461d;
+  --primary: #0078D4;
+  --secondary: #605E5C;
+  --light: #f4f4f4;
+  --dark: #264653;
+  --delete: #e7461d;
+  --grey: #888;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: "Fira Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	background-color: var(--light);
-	color: var(--dark);
+  font-family: Arial, sans-serif;
+}
+
+h1, h4 {
+  color: var(--dark);
+  text-align: center;
+  margin-top: 10px;
+}
+
+h4 {
+  margin-bottom: 15px;
 }
 
 .App {
-	padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  height: 100vh;
+  justify-content: flex-start;
+  min-height: 100vh;
 }
 
 .todo {
-	position: relative;
-	background-color: var(--light);
-	padding: 16px;
-	border-radius: 8px;
-	display: flex;
-	align-items: center;
-	transition: 0.5s;
-	cursor: pointer;
-	margin-bottom: 16px;
-	box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid var(--light);
+  background-color: #fff;
+  transition: background-color 0.3s ease;
 }
 
 .todo:hover {
-	box-shadow: 0px 3px 12px rgba(0,0,0,0.15);
+  background-color: #f0f0f0;
 }
 
 .todo .checkbox {
-	width: 20px;
-	height: 20px;
-	margin-right: 16px;
-	border-radius: 50%;
-	border: 2px solid var(--dark);
-	transition: 0.4s;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid var(--dark);
+  cursor: pointer;
 }
-
-
-
-
 
 .todo.is-complete .checkbox {
-  border-color: var(--dark);
-  background-color: var(--light);
-  position: relative;
-  overflow: hidden;
+  border-color: var(--primary);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-
-.todo.is-complete .checkbox::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 14px;
-  height: 10px;
-  background-image: url('../public/tick.png'); /* Replace 'tick.png' with the path to your tick image */
-  background-size: cover;
-}
-
-.todo.is-complete .checkbox::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  opacity: 0.4;
-  transition: opacity 0.3s;
-}
-
-.todo.is-complete:hover .checkbox::after {
-  opacity: 0.6;
-}
-
-
-
-
-
 
 .todo .text {
-	font-size: 20px;
+  flex-grow: 1;
+  margin-left: 15px;
+  cursor: pointer;
 }
 
 .todo.is-complete .text {
-	text-decoration: line-through;
-	color: var(--secondary);
+  color: var(--grey);
+  text-decoration: line-through;
 }
 
 .todo .delete-todo {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	right: 16px;
-	color: var(--light);
-	width: 24px;
-	height: 24px;
-	border-radius: 20%;
-	background-color: var(--delete);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-weight: 700;
-	cursor: pointer;
-	box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+  color: var(--delete);
+  cursor: pointer;
 }
 
-.todo .delete-todo:hover {
-	background-color: #c24e30;
+.input-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--light);
+  background-color: #fff;
+}
+
+.input-form-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+}
+
+.title-container {
+  text-align: center;
+}
+
+.add-todo-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.delete-todo {
+  height: 20px;
+  width: 20px;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+
+.content-container {
+  flex-direction: column;
+  align-items: start;
+  padding-bottom: 70px; /* adjust this to match your input field's height */
+  width: 100%;
 }
